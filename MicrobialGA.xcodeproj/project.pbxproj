@@ -1,0 +1,211 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83736282148F67D4004E66FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83736281148F67D4004E66FE /* main.cpp */; };
+		83736284148F67D4004E66FE /* MicrobialGA.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83736283148F67D4004E66FE /* MicrobialGA.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8373627B148F67D4004E66FE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				83736284148F67D4004E66FE /* MicrobialGA.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8373627D148F67D4004E66FE /* MicrobialGA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MicrobialGA; sourceTree = BUILT_PRODUCTS_DIR; };
+		83736281148F67D4004E66FE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		83736283148F67D4004E66FE /* MicrobialGA.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MicrobialGA.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8373627A148F67D4004E66FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83736272148F67D4004E66FE = {
+			isa = PBXGroup;
+			children = (
+				83736280148F67D4004E66FE /* MicrobialGA */,
+				8373627E148F67D4004E66FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8373627E148F67D4004E66FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8373627D148F67D4004E66FE /* MicrobialGA */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83736280148F67D4004E66FE /* MicrobialGA */ = {
+			isa = PBXGroup;
+			children = (
+				83736281148F67D4004E66FE /* main.cpp */,
+				83736283148F67D4004E66FE /* MicrobialGA.1 */,
+			);
+			path = MicrobialGA;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8373627C148F67D4004E66FE /* MicrobialGA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83736287148F67D4004E66FE /* Build configuration list for PBXNativeTarget "MicrobialGA" */;
+			buildPhases = (
+				83736279148F67D4004E66FE /* Sources */,
+				8373627A148F67D4004E66FE /* Frameworks */,
+				8373627B148F67D4004E66FE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MicrobialGA;
+			productName = MicrobialGA;
+			productReference = 8373627D148F67D4004E66FE /* MicrobialGA */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83736274148F67D4004E66FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Goldsmiths Creative Computing";
+			};
+			buildConfigurationList = 83736277148F67D4004E66FE /* Build configuration list for PBXProject "MicrobialGA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83736272148F67D4004E66FE;
+			productRefGroup = 8373627E148F67D4004E66FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8373627C148F67D4004E66FE /* MicrobialGA */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83736279148F67D4004E66FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83736282148F67D4004E66FE /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		83736285148F67D4004E66FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		83736286148F67D4004E66FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		83736288148F67D4004E66FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		83736289148F67D4004E66FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83736277148F67D4004E66FE /* Build configuration list for PBXProject "MicrobialGA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83736285148F67D4004E66FE /* Debug */,
+				83736286148F67D4004E66FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83736287148F67D4004E66FE /* Build configuration list for PBXNativeTarget "MicrobialGA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83736288148F67D4004E66FE /* Debug */,
+				83736289148F67D4004E66FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83736274148F67D4004E66FE /* Project object */;
+}
