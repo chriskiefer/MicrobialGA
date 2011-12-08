@@ -1,0 +1,5 @@
+Based on "The Microbial Genetic Algorithm" by Inman Harvey  
+
+http://www.sussex.ac.uk/Users/inmanh/MicrobialGA_ECAL2009.pdf
+
+This is tested on OS X but should be cross platform.  There's an example of how the code works in main.cpp.
