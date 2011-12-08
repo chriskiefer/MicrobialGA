@@ -111,5 +111,11 @@ void microbialGA::microbialTournament() {
     }
 }
 
+void microbialGA::genotypeToFloat(genotype &g, vector<float> &floatdata) {
+    floatdata.resize(g.size());
+    for(int i=0; i < g.size(); i++) floatdata[i] = (float) g[i] / (float) numeric_limits<unsigned int>::max();
+}
+
+
 
 

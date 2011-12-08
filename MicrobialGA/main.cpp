@@ -26,8 +26,10 @@ public:
     float evaluate(genotype &a) {
         //return mean value
         float sum=0;
+        vector<float> floatdata;
+        microbialGA::genotypeToFloat(a, floatdata);
         for(int i=0; i < a.size(); i++) {
-            sum += (a[i] / (float) numeric_limits<unsigned int>::max());
+            sum += floatdata[i];
         }
         return sum / a.size();
     }

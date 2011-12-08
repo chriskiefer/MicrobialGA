@@ -28,6 +28,7 @@ public:
     void evolve(unsigned int numIterations);
     void evolveUntil(float threshold);
     genotype& getFittestIndividual();
+    static void genotypeToFloat(genotype &g, vector<float> &floatdata);
 private:
     unsigned int populationSize, demeSize, geneSize;
     float recombinationRate, mutationRate;
