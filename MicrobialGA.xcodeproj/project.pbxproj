@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		83736282148F67D4004E66FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83736281148F67D4004E66FE /* main.cpp */; };
 		83736284148F67D4004E66FE /* MicrobialGA.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83736283148F67D4004E66FE /* MicrobialGA.1 */; };
+		8373628B148F68EF004E66FE /* microbialGA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8373628A148F68EF004E66FE /* microbialGA.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		8373627D148F67D4004E66FE /* MicrobialGA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MicrobialGA; sourceTree = BUILT_PRODUCTS_DIR; };
 		83736281148F67D4004E66FE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		83736283148F67D4004E66FE /* MicrobialGA.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MicrobialGA.1; sourceTree = "<group>"; };
+		8373628A148F68EF004E66FE /* microbialGA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = microbialGA.cpp; sourceTree = "<group>"; };
+		8373628C148F6906004E66FE /* microbialGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = microbialGA.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 			children = (
 				83736281148F67D4004E66FE /* main.cpp */,
 				83736283148F67D4004E66FE /* MicrobialGA.1 */,
+				8373628A148F68EF004E66FE /* microbialGA.cpp */,
+				8373628C148F6906004E66FE /* microbialGA.h */,
 			);
 			path = MicrobialGA;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83736282148F67D4004E66FE /* main.cpp in Sources */,
+				8373628B148F68EF004E66FE /* microbialGA.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,36 @@
 //
 
 #include <iostream>
+#include "microbialGA.h"
+
+using namespace std;
+
+class gaTest : public objectiveFunctionEvaluator {
+public:
+    void go() {
+        cout << "Microbial GA... testing\n";
+        microbialGA ga(50, 10, 50, 0.5, 0.01, this);
+//        ga.evolve(10000);
+        ga.evolveUntil(0.99);
+        genotype g = ga.getFittestIndividual();
+        cout << "Winner: ";
+        for(int i=0; i < g.size(); i++) cout << g[i] << ",";
+        cout << endl;
+    }
+    float evaluate(genotype &a) {
+        //return mean value
+        float sum=0;
+        for(int i=0; i < a.size(); i++) {
+            sum += (a[i] / (float) numeric_limits<unsigned int>::max());
+        }
+        return sum / a.size();
+    }
+};
 
 int main (int argc, const char * argv[])
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    gaTest test;
+    test.go();
     return 0;
 }
 
