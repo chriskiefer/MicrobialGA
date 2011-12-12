@@ -24,12 +24,17 @@ public:
 
 class microbialGA {
 public:
-    microbialGA(unsigned int populationSize, unsigned int demeSize, unsigned int geneSize, float recombinationRate, float mutationRate,objectiveFunctionEvaluator *evaluator);
+    enum fitnessComparisonTypes {
+        HIGHSCOREISBEST, LOWSCOREISBEST
+    } fitnessComparisonType;
+    microbialGA(unsigned int populationSize, unsigned int demeSize, unsigned int geneSize, float recombinationRate, float mutationRate,
+                objectiveFunctionEvaluator *evaluator, fitnessComparisonTypes comparisonType);
     void evolve(unsigned int numIterations);
     void evolveUntil(float threshold);
     genotype& getFittestIndividual();
     static void genotypeToFloat(genotype &g, vector<float> &floatdata);
 private:
+    void prepareToEvolve();
     unsigned int populationSize, demeSize, geneSize;
     float recombinationRate, mutationRate;
     vector<genotype> population;

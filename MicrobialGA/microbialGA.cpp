@@ -15,9 +15,9 @@ inline float randUF() {
     return (float)rand() / (float) RAND_MAX;
 }
 
-microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, unsigned int _geneSize, float _recombinationRate, float _mutationRate, objectiveFunctionEvaluator *_eval) : 
+microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, unsigned int _geneSize, float _recombinationRate, float _mutationRate, objectiveFunctionEvaluator *_eval, fitnessComparisonTypes comparisonType) : 
     populationSize(_populationSize), demeSize(_demeSize), geneSize(_geneSize), 
-    recombinationRate(_recombinationRate), mutationRate(_mutationRate), evaluator(_eval)
+    recombinationRate(_recombinationRate), mutationRate(_mutationRate), evaluator(_eval), fitnessComparisonType(comparisonType)
 {
     srand((int)time(NULL));
     
@@ -33,19 +33,23 @@ microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, u
     geneCharSize = geneSize * sizeof(unsigned int);
 }
 
+void microbialGA::prepareToEvolve() {
+    smoothedFitness = (HIGHSCOREISBEST == fitnessComparisonType) ? 0 : 1;
+    bestFitness = (HIGHSCOREISBEST == fitnessComparisonType) ? 0 : 1;
+}
+
 void microbialGA::evolve(unsigned int numIterations) {
-    smoothedFitness = 0;
+    prepareToEvolve();
     for(int i=0; i < numIterations; i++) {
         microbialTournament();
-        cout << "Iteration " << i << ", fitness: " << smoothedFitness << endl;
+        cout << "Iteration " << i << ", average fitness: " << smoothedFitness << ", best fitness: " << bestFitness << endl;
     }
 }
 
 void microbialGA::evolveUntil(float threshold) {
-    smoothedFitness = 0;
-    bestFitness = 0;
+    prepareToEvolve();
     int i=0;
-    while(bestFitness < threshold) {
+    while((HIGHSCOREISBEST == fitnessComparisonType) ? bestFitness < threshold : bestFitness > threshold) {
         microbialTournament();
         cout << "Iteration " << i << ", average fitness: " << smoothedFitness << ", best fitness: " << bestFitness << endl;
         i++;
@@ -87,7 +91,7 @@ void microbialGA::microbialTournament() {
     float contestant1Fitness = evaluator->evaluate(population[contestant1]);
     float contestant2Fitness = evaluator->evaluate(population[contestant2]);
     float winningFitness;
-    if (contestant1Fitness >  contestant2Fitness) {
+    if (HIGHSCOREISBEST == fitnessComparisonType ? contestant1Fitness >  contestant2Fitness : contestant1Fitness <  contestant2Fitness) {
         winner = contestant1;
         loser = contestant2;
         winningFitness = contestant1Fitness;
@@ -98,7 +102,7 @@ void microbialGA::microbialTournament() {
     }
     
     smoothedFitness = (0.9 * smoothedFitness) + (0.1 * winningFitness); //exp moving average
-    if (winningFitness > bestFitness) {
+    if (HIGHSCOREISBEST == fitnessComparisonType ? winningFitness > bestFitness : winningFitness < bestFitness) {
         bestFitness = winningFitness;
         bestFitnessIndex = winner;
     }
