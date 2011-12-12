@@ -15,7 +15,7 @@ class gaTest : public objectiveFunctionEvaluator {
 public:
     void go() {
         cout << "Microbial GA... testing\n";
-        microbialGA ga(30, 15, 10, 0.5, 0.01, this, microbialGA::LOWSCOREISBEST);
+        microbialGA ga(30, 15, 10, 0.5, 0.01, this, microbialGA::LOWSCOREISBEST, 1000);
 //        ga.evolve(10000);
         ga.evolveUntil(0.001);
         genotype g = ga.getFittestIndividual();

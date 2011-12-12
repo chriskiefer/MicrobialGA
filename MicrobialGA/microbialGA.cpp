@@ -15,9 +15,10 @@ inline float randUF() {
     return (float)rand() / (float) RAND_MAX;
 }
 
-microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, unsigned int _geneSize, float _recombinationRate, float _mutationRate, objectiveFunctionEvaluator *_eval, fitnessComparisonTypes comparisonType) : 
-    populationSize(_populationSize), demeSize(_demeSize), geneSize(_geneSize), 
-    recombinationRate(_recombinationRate), mutationRate(_mutationRate), evaluator(_eval), fitnessComparisonType(comparisonType)
+microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, unsigned int _geneSize, float _recombinationRate, float _mutationRate, objectiveFunctionEvaluator *_eval, fitnessComparisonTypes comparisonType, int reportEvery) : 
+populationSize(_populationSize), demeSize(_demeSize), geneSize(_geneSize), 
+recombinationRate(_recombinationRate), mutationRate(_mutationRate), evaluator(_eval), fitnessComparisonType(comparisonType),
+reportPeriod(reportEvery)
 {
     srand((int)time(NULL));
     
@@ -34,8 +35,8 @@ microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, u
 }
 
 void microbialGA::prepareToEvolve() {
-    smoothedFitness = (HIGHSCOREISBEST == fitnessComparisonType) ? 0 : 1;
-    bestFitness = (HIGHSCOREISBEST == fitnessComparisonType) ? 0 : 1;
+    smoothedFitness = (HIGHSCOREISBEST == fitnessComparisonType) ? -numeric_limits<float>::max() : numeric_limits<float>::max();
+    bestFitness = (HIGHSCOREISBEST == fitnessComparisonType) ? -numeric_limits<float>::max() : numeric_limits<float>::max();
 }
 
 void microbialGA::evolve(unsigned int numIterations) {
@@ -53,19 +54,27 @@ void microbialGA::evolveUntil(float threshold) {
         microbialTournament();
         cout << "Iteration " << i << ", average fitness: " << smoothedFitness << ", best fitness: " << bestFitness << endl;
         i++;
+        if (i % reportPeriod == 0) {
+            genotype g = getFittestIndividual();
+            cout << "Fittest individual: ";
+            for(int j=0; j < g.size(); j++) {
+                cout << (g[j] / (float) numeric_limits<unsigned int>::max()) << ",";
+            }
+            cout << endl;
+        }
     }    
 }
 
 genotype& microbialGA::getFittestIndividual() {
-//    float maxFitness=0;
-//    int maxIdx=0;
-//    for(int i=0; i < populationSize; i++) {
-//        float fitness = evaluator->evaluate(population[i]);
-//        if (fitness > maxFitness) {
-//            maxFitness = fitness;
-//            maxIdx =i;
-//        }
-//    }
+    //    float maxFitness=0;
+    //    int maxIdx=0;
+    //    for(int i=0; i < populationSize; i++) {
+    //        float fitness = evaluator->evaluate(population[i]);
+    //        if (fitness > maxFitness) {
+    //            maxFitness = fitness;
+    //            maxIdx =i;
+    //        }
+    //    }
     return population[bestFitnessIndex];
 }
 

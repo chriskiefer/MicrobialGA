@@ -28,7 +28,7 @@ public:
         HIGHSCOREISBEST, LOWSCOREISBEST
     } fitnessComparisonType;
     microbialGA(unsigned int populationSize, unsigned int demeSize, unsigned int geneSize, float recombinationRate, float mutationRate,
-                objectiveFunctionEvaluator *evaluator, fitnessComparisonTypes comparisonType);
+                objectiveFunctionEvaluator *evaluator, fitnessComparisonTypes comparisonType, int reportEvery);
     void evolve(unsigned int numIterations);
     void evolveUntil(float threshold);
     genotype& getFittestIndividual();
@@ -46,6 +46,7 @@ private:
     
     float smoothedFitness, bestFitness;
     unsigned int bestFitnessIndex;
+    int reportPeriod;
 };
 
 #endif
