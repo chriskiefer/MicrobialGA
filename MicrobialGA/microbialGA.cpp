@@ -11,9 +11,6 @@
 #include <cmath>
 #include <bitset>
 
-inline float randUF() {
-    return (float)rand() / (float) RAND_MAX;
-}
 
 microbialGA::microbialGA(unsigned int _populationSize, unsigned int _demeSize, unsigned int _geneSize, float _recombinationRate, float _mutationRate, objectiveFunctionEvaluator *_eval, fitnessComparisonTypes comparisonType, int reportEvery) : 
 populationSize(_populationSize), demeSize(_demeSize), geneSize(_geneSize), 
@@ -21,6 +18,9 @@ recombinationRate(_recombinationRate), mutationRate(_mutationRate), evaluator(_e
 reportPeriod(reportEvery)
 {
     srand((int)time(NULL));
+    
+    mtRand = new dsfmt_t();
+    dsfmt_init_gen_rand(mtRand, (int)time(NULL));
     
     //initialise the population randomly
     population.resize(populationSize);
@@ -32,6 +32,10 @@ reportPeriod(reportEvery)
     }
     
     geneCharSize = geneSize * sizeof(unsigned int);
+}
+
+microbialGA::~microbialGA() {
+    delete mtRand;
 }
 
 void microbialGA::prepareToEvolve() {

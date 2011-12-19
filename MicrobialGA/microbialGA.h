@@ -12,6 +12,10 @@
 #ifndef MicrobialGA_microbialGA_h
 #define MicrobialGA_microbialGA_h
 #include <vector>
+extern "C" {
+#include "dSFMT.h"
+}
+
 
 using namespace std;
 
@@ -29,6 +33,7 @@ public:
     } fitnessComparisonType;
     microbialGA(unsigned int populationSize, unsigned int demeSize, unsigned int geneSize, float recombinationRate, float mutationRate,
                 objectiveFunctionEvaluator *evaluator, fitnessComparisonTypes comparisonType, int reportEvery);
+    ~microbialGA();
     void evolve(unsigned int numIterations);
     void evolveUntil(float threshold);
     genotype& getFittestIndividual();
@@ -47,6 +52,14 @@ private:
     float smoothedFitness, bestFitness;
     unsigned int bestFitnessIndex;
     int reportPeriod;
+    
+    dsfmt_t *mtRand;
+    
+    inline float randUF() {
+//        return (float)rand() / (float) RAND_MAX;
+        return dsfmt_genrand_close_open(mtRand);
+    }
+
 };
 
 #endif

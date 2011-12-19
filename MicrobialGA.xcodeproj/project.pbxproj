@@ -10,6 +10,7 @@
 		83736282148F67D4004E66FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83736281148F67D4004E66FE /* main.cpp */; };
 		83736284148F67D4004E66FE /* MicrobialGA.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83736283148F67D4004E66FE /* MicrobialGA.1 */; };
 		8373628B148F68EF004E66FE /* microbialGA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8373628A148F68EF004E66FE /* microbialGA.cpp */; };
+		839E1800149F27FB000FC9AB /* dSFMT.c in Sources */ = {isa = PBXBuildFile; fileRef = 839E17FE149F27FB000FC9AB /* dSFMT.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,19 @@
 		83736283148F67D4004E66FE /* MicrobialGA.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MicrobialGA.1; sourceTree = "<group>"; };
 		8373628A148F68EF004E66FE /* microbialGA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = microbialGA.cpp; sourceTree = "<group>"; };
 		8373628C148F6906004E66FE /* microbialGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = microbialGA.h; sourceTree = "<group>"; };
+		839E17F3149F27FB000FC9AB /* dSFMT-params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params.h"; sourceTree = "<group>"; };
+		839E17F4149F27FB000FC9AB /* dSFMT-params11213.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params11213.h"; sourceTree = "<group>"; };
+		839E17F5149F27FB000FC9AB /* dSFMT-params1279.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params1279.h"; sourceTree = "<group>"; };
+		839E17F6149F27FB000FC9AB /* dSFMT-params132049.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params132049.h"; sourceTree = "<group>"; };
+		839E17F7149F27FB000FC9AB /* dSFMT-params19937.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params19937.h"; sourceTree = "<group>"; };
+		839E17F8149F27FB000FC9AB /* dSFMT-params216091.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params216091.h"; sourceTree = "<group>"; };
+		839E17F9149F27FB000FC9AB /* dSFMT-params2203.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params2203.h"; sourceTree = "<group>"; };
+		839E17FA149F27FB000FC9AB /* dSFMT-params4253.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params4253.h"; sourceTree = "<group>"; };
+		839E17FB149F27FB000FC9AB /* dSFMT-params44497.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params44497.h"; sourceTree = "<group>"; };
+		839E17FC149F27FB000FC9AB /* dSFMT-params521.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params521.h"; sourceTree = "<group>"; };
+		839E17FD149F27FB000FC9AB /* dSFMT-params86243.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dSFMT-params86243.h"; sourceTree = "<group>"; };
+		839E17FE149F27FB000FC9AB /* dSFMT.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dSFMT.c; sourceTree = "<group>"; };
+		839E17FF149F27FB000FC9AB /* dSFMT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dSFMT.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +77,33 @@
 		83736280148F67D4004E66FE /* MicrobialGA */ = {
 			isa = PBXGroup;
 			children = (
+				839E17F2149F27FB000FC9AB /* dSFMT */,
 				83736281148F67D4004E66FE /* main.cpp */,
 				83736283148F67D4004E66FE /* MicrobialGA.1 */,
 				8373628A148F68EF004E66FE /* microbialGA.cpp */,
 				8373628C148F6906004E66FE /* microbialGA.h */,
 			);
 			path = MicrobialGA;
+			sourceTree = "<group>";
+		};
+		839E17F2149F27FB000FC9AB /* dSFMT */ = {
+			isa = PBXGroup;
+			children = (
+				839E17F3149F27FB000FC9AB /* dSFMT-params.h */,
+				839E17F4149F27FB000FC9AB /* dSFMT-params11213.h */,
+				839E17F5149F27FB000FC9AB /* dSFMT-params1279.h */,
+				839E17F6149F27FB000FC9AB /* dSFMT-params132049.h */,
+				839E17F7149F27FB000FC9AB /* dSFMT-params19937.h */,
+				839E17F8149F27FB000FC9AB /* dSFMT-params216091.h */,
+				839E17F9149F27FB000FC9AB /* dSFMT-params2203.h */,
+				839E17FA149F27FB000FC9AB /* dSFMT-params4253.h */,
+				839E17FB149F27FB000FC9AB /* dSFMT-params44497.h */,
+				839E17FC149F27FB000FC9AB /* dSFMT-params521.h */,
+				839E17FD149F27FB000FC9AB /* dSFMT-params86243.h */,
+				839E17FF149F27FB000FC9AB /* dSFMT.h */,
+				839E17FE149F27FB000FC9AB /* dSFMT.c */,
+			);
+			path = dSFMT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +159,7 @@
 			files = (
 				83736282148F67D4004E66FE /* main.cpp in Sources */,
 				8373628B148F68EF004E66FE /* microbialGA.cpp in Sources */,
+				839E1800149F27FB000FC9AB /* dSFMT.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +246,7 @@
 				83736289148F67D4004E66FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
