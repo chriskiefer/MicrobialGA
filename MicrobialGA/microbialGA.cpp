@@ -52,7 +52,8 @@ void microbialGA::evolveUntil(float threshold) {
     int i=0;
     while((HIGHSCOREISBEST == fitnessComparisonType) ? bestFitness < threshold : bestFitness > threshold) {
         microbialTournament();
-        cout << "Iteration " << i << ", average fitness: " << smoothedFitness << ", best fitness: " << bestFitness << endl;
+        if (i % 100 == 0)
+            cout << "Iteration " << i << ", average fitness: " << smoothedFitness << ", best fitness: " << bestFitness << " (" << bestFitnessIndex << ")" << endl;
         i++;
         if (i % reportPeriod == 0) {
             genotype g = getFittestIndividual();
@@ -66,15 +67,6 @@ void microbialGA::evolveUntil(float threshold) {
 }
 
 genotype& microbialGA::getFittestIndividual() {
-    //    float maxFitness=0;
-    //    int maxIdx=0;
-    //    for(int i=0; i < populationSize; i++) {
-    //        float fitness = evaluator->evaluate(population[i]);
-    //        if (fitness > maxFitness) {
-    //            maxFitness = fitness;
-    //            maxIdx =i;
-    //        }
-    //    }
     return population[bestFitnessIndex];
 }
 
@@ -100,7 +92,7 @@ void microbialGA::microbialTournament() {
     float contestant1Fitness = evaluator->evaluate(population[contestant1]);
     float contestant2Fitness = evaluator->evaluate(population[contestant2]);
     float winningFitness;
-    if (HIGHSCOREISBEST == fitnessComparisonType ? contestant1Fitness >  contestant2Fitness : contestant1Fitness <  contestant2Fitness) {
+    if (HIGHSCOREISBEST == fitnessComparisonType ? contestant1Fitness >=  contestant2Fitness : contestant1Fitness <=  contestant2Fitness) {
         winner = contestant1;
         loser = contestant2;
         winningFitness = contestant1Fitness;
@@ -111,13 +103,17 @@ void microbialGA::microbialTournament() {
     }
     
     smoothedFitness = (0.9 * smoothedFitness) + (0.1 * winningFitness); //exp moving average
-    if (HIGHSCOREISBEST == fitnessComparisonType ? winningFitness > bestFitness : winningFitness < bestFitness) {
+    if (HIGHSCOREISBEST == fitnessComparisonType ? winningFitness >= bestFitness : winningFitness <= bestFitness) {
         bestFitness = winningFitness;
         bestFitnessIndex = winner;
     }
     
     unsigned char *winnerGene = (unsigned char*) &population[winner][0];
     unsigned char *loserGene = (unsigned char*) &population[loser][0];
+    
+    if (loser == bestFitnessIndex) {
+        cout << "***** Warning:: non-deterministic objective function\n";
+    }
     
     for(int i=0; i < geneCharSize; i++) {
         loserGene[i] = bitwiseInfectAndMutate(winnerGene[i], loserGene[i]);
